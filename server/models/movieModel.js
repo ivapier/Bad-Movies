@@ -1,9 +1,5 @@
-//Select one db to work with:
+const sqlDb = require('../../db');
 
-//For SQL
-const sqlDb = require('../../db/sql');
-//For Mongo
-const mongoDb = require('../../db/mongodb')
 
 module.exports = {
 
