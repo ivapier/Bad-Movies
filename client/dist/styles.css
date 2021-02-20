@@ -1,7 +1,7 @@
 html, body, #app {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Monaco", monospace;
   font-weight: 400;
   height: 100%;
   width: 100%;
@@ -39,28 +39,43 @@ html, body, #app {
   overflow: hidden;
 }
 
+*:focus {
+  outline: none;
+}
+
 .search {
   flex-basis: 20%;
   min-width: 200px;
 
   padding: 20px;
-  background-color: #d35400;
+  background-color: aliceblue;
   z-index:2;
   text-align:center;
   font-size: 20px;
+  font-family: "Monaco", monospace;
 }
 
 .search > button{
   font-size: 20px;
   padding: 10px;
+  border-radius: 10px;
+  border-color: gray;
+  background-color: white;
+  font-family: "Monaco", monospace;
 }
 
 .search > select{
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
+  border-radius: 10px;
+  border-color: aliceblue;
+  font-family: "Monaco", monospace;
 }
 
 .movies {
+  font-family: 'Impact';
+  font-weight: 300;
+  font-variant: small-caps;
   flex-basis:80%;
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +113,7 @@ html, body, #app {
 }
 
 .movie_description h2 {
-  color: #555;
+  color: #333;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -109,7 +124,7 @@ html, body, #app {
 }
 
 .movie_details span {
-  color: #555;
+  color: #333;
   font-size: 0.8rem;
   font-weight: bold;
 }

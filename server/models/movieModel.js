@@ -2,7 +2,6 @@ const db = require('../../db');
 
 module.exports = {
   save: (movie, callback) => {
-    console.log('movie sent to save function: ', movie);
     const queryString = `INSERT INTO favorites VALUES('${movie.id}', '${movie.title}', '${movie.release_date}', '${movie.popularity}', '${movie.poster_path}');`;
     db.query(queryString, (err, data) => {
       if (err) {

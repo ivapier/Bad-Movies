@@ -30,7 +30,9 @@ class Search extends React.Component {
   }
 
   handleSubmit() {
-    this.props.getMovies(this.state.currentGenre);
+    if (this.state.currentGenre) {
+      this.props.getMovies(this.state.currentGenre);
+    }
   }
 
   componentDidMount() {
