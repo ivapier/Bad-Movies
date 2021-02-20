@@ -19,20 +19,24 @@ Use the routes below to build your application:
 
 const controller = require('./controllers/movieController.js');
 
-app.get("/genres", function(req, res) {
+app.get('/genres', function(req, res) {
   controller.getGenres(req, res);
 });
 
-app.get("/search", function(req, res) {
+app.get('/search', function(req, res) {
   controller.getSearch(req, res);
 });
 
-app.post("/save", function(req, res) {
-  //save movie as favorite into the database
+app.post('/save', function(req, res) {
+  controller.saveMovie(req, res);
 });
 
-app.post("/delete", function(req, res) {
-  //remove movie from favorites into the database
+app.post('/delete', function(req, res) {
+  controller.deleteMovie(req, res);
+});
+
+app.get('/favorites', function(req, res) {
+  controller.getFavorites(req, res);
 });
 
 app.listen(3000, function() {

@@ -5,10 +5,12 @@ class Search extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      genres: []
+      genres: [],
+      currentGenre: ''
     };
     this.getGenres = this.getGenres.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   getGenres() {
@@ -23,8 +25,12 @@ class Search extends React.Component {
 
   handleGenreChange(e) {
     if (e.target.value !== 'null') {
-      this.props.getMovies(e.target.value);
+      this.setState({currentGenre: e.target.value});
     }
+  }
+
+  handleSubmit() {
+    this.props.getMovies(this.state.currentGenre);
   }
 
   componentDidMount() {
@@ -45,7 +51,7 @@ class Search extends React.Component {
         </select>
         <br/><br/>
 
-        <button>Search</button>
+        <button onClick={this.handleSubmit}>Search</button>
 
       </div>
     );

@@ -23,9 +23,33 @@ module.exports = {
     });
   },
   saveMovie: (req, res) => {
-
+    movieModel.save(req.body.movie, (err, data) => {
+      if (err) {
+        console.error('error saving movie: ', err);
+        res.sendStatus(500);
+      } else {
+        res.status(201).send(data);
+      }
+    });
   },
   deleteMovie: (req, res) => {
-
+    movieModel.delete(req.body.movie, (err) => {
+      if (err) {
+        console.error('error deleting movie: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(201);
+      }
+    });
+  },
+  getFavorites: (req, res) => {
+    movieModel.getAll((err, data) => {
+      if (err) {
+        console.error('error getting all movies: ', err);
+        res.sendStatus(500);
+      } else {
+        res.status(201).send(data);
+      }
+    });
   }
 }

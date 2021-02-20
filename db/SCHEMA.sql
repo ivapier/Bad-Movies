@@ -4,11 +4,11 @@ CREATE DATABASE badmovies;
 USE badmovies;
 
 CREATE TABLE favorites (
-  id INT AUTO_INCREMENT NOT NULL,
+  id INT NOT NULL,
   title VARCHAR(40),
-  releaseYear INT,
-  rating FLOAT,
-  img VARCHAR(4000),
+  release_date VARCHAR(40),
+  popularity FLOAT,
+  poster_path VARCHAR(4000),
   PRIMARY KEY(id)
 );
 

@@ -4,20 +4,23 @@ class Movies extends React.Component {
   constructor(props) {
     super(props)
 
+    this.saveOrDeleteMovie = this.saveOrDeleteMovie.bind(this);
   }
 
-  // Make an onClick for each list item. If the movies shown is the search results,
-  // onClick add it to the database (do it in the main app, and pass down the function)
-
-  // If you're currently showing the fave list, delete the movie instead
-  // You can tell which list is currently being rendered based on whether the prop "showFaves" is false (search results) or true (fave list) (within index.jsx)
+  saveOrDeleteMovie(movie) {
+    if (!this.props.showFaves) {
+      this.props.saveMovie(movie);
+    } else {
+      this.props.deleteMovie(movie);
+    }
+  }
 
   render() {
     return (
       <ul className="movies">
         {this.props.movies.map((movie, index) => {
           return (
-            <li key={index} className="movie_item">
+            <li key={index} className="movie_item" onClick={() => this.saveOrDeleteMovie(movie)}>
               <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : null} />
               <div className="movie_description">
                 <h2>{movie.title}</h2>
