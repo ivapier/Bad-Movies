@@ -73,7 +73,7 @@ class App extends React.Component {
   render () {
   	return (
       <div className="app">
-        <header className="navbar"><h1>Bad Movies</h1></header>
+        <header className="navbar"><h1>Good Movies</h1></header>
         <div className="main">
           <Search swapFavorites={this.swapFavorites} showFaves={this.state.showFaves} getMovies={this.getMovies}/>
           <Movies movies={this.state.showFaves ? this.state.favorites : this.state.movies} showFaves={this.state.showFaves} saveMovie={this.saveMovie} deleteMovie={this.deleteMovie}/>

@@ -3,7 +3,7 @@ const { API_KEY } = require('../../config.js');
 
 module.exports = {
   searchData: (genre, callback) => {
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.asc&include_adult=true&include_video=true&with_genres=${genre}`
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=true&with_genres=${genre}`
 
     axios.get(url)
       .then((data) => {
