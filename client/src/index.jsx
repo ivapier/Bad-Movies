@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
   	super(props)
   	this.state = {
-      movies: [{deway: "movies"}],
+      movies: [],
       favorites: [{deway: "favorites"}],
       showFaves: false,
     };
