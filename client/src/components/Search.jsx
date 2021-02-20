@@ -8,7 +8,9 @@ class Search extends React.Component {
       genres: []
     };
     this.getGenres = this.getGenres.bind(this);
+    this.handleGenreChange = this.handleGenreChange.bind(this);
   }
+
   getGenres() {
     axios.get('/genres')
       .then((data) => {
@@ -17,6 +19,12 @@ class Search extends React.Component {
       .catch((err) => {
         console.error('Error getting genres: ', err);
       });
+  }
+
+  handleGenreChange(e) {
+    if (e.target.value !== 'null') {
+      this.props.getMovies(e.target.value);
+    }
   }
 
   componentDidMount() {
@@ -32,10 +40,10 @@ class Search extends React.Component {
         {/* Make the select options dynamic from genres !!! */}
         {/* How can you tell which option has been selected from here? */}
 
-        <select>
-          <option>--Select a Genre--</option>
+        <select onChange={this.handleGenreChange}>
+          <option value="null">--Select a Genre--</option>
           {this.state.genres.map((genre, index) => {
-            return (<option key={index} value={genre.name} name={genre.id}>{genre.name}</option>)
+            return (<option key={index} value={genre.id}>{genre.name}</option>)
           })}
         </select>
         <br/><br/>

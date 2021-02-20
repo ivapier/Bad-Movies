@@ -3,7 +3,7 @@ const apiHelpers = require('../helpers/apiHelpers.js');
 
 module.exports = {
   getSearch: (req, res) => {
-    apiHelpers.searchData(27, (err, data) => {
+    apiHelpers.searchData(req.query.genre, (err, data) => {
       if (err) {
         console.error('error getting movies: ', err);
         res.sendStatus(500);
